@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 
-class materials extends Component {
+import materials from "../../data/materials.json";
+
+class Materials extends Component {
+  state = {
+    materials: materials
+  }
+
   render() {
     return (
       <div className="container">
@@ -21,18 +27,21 @@ class materials extends Component {
         </div>
 
         {/* Form goes here */}
-        <form>
+        <form className="mt-4">
           <div class="form-row align-items-center">
             <div class="col-auto my-1">
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>Choose Material</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+              <select class="custom-select mr-sm-2">
+                {this.state.materials.map((item, idx) => {
+                  return <option key={idx}>{item.name}</option>;
+                })}
               </select>
             </div>
-            <div class="col-sm-9 my-1">
-              <input type="text"className="form-control" placeholder="Paste link here" />
+            <div class="col-sm-8 my-1">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Paste link here"
+              />
             </div>
             <div class="col-auto my-1">
               <button type="submit" class="btn btn-primary">
@@ -44,7 +53,7 @@ class materials extends Component {
 
         {/* Table goes here */}
         {/* To make this table dynamic, I need to use state and populate the table based off that -- see mydevbox ToolBox */}
-        <table class="table table-hover">
+        <table class="table table-hover mt-4">
           <thead>
             <tr>
               <th scope="col">Complete</th>
@@ -116,4 +125,4 @@ class materials extends Component {
   }
 }
 
-export default materials;
+export default Materials;
