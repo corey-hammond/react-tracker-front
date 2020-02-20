@@ -1,10 +1,20 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import materials from "../../data/materials.json";
 
 class Materials extends Component {
   state = {
-    materials: materials
+    materials: [{}]
+  };
+
+  componentDidMount() {
+    let url = "http://localhost:5000/materials";
+
+    axios.get(url).then(res => {
+      console.log(res.data);
+      this.setState({ materials: res.data });
+    });
   }
 
   render() {
@@ -28,23 +38,23 @@ class Materials extends Component {
 
         {/* Form goes here */}
         <form className="mt-4">
-          <div class="form-row align-items-center">
-            <div class="col-auto my-1">
-              <select class="custom-select mr-sm-2">
+          <div className="form-row align-items-center">
+            <div className="col-auto my-1">
+              <select className="custom-select mr-sm-2">
                 {this.state.materials.map((item, idx) => {
                   return <option key={idx}>{item.name}</option>;
                 })}
               </select>
             </div>
-            <div class="col-sm-8 my-1">
+            <div className="col-sm-8 my-1">
               <input
                 type="text"
                 className="form-control"
                 placeholder="Paste link here"
               />
             </div>
-            <div class="col-auto my-1">
-              <button type="submit" class="btn btn-primary">
+            <div className="col-auto my-1">
+              <button type="submit" className="btn btn-primary">
                 Submit
               </button>
             </div>
@@ -53,7 +63,7 @@ class Materials extends Component {
 
         {/* Table goes here */}
         {/* To make this table dynamic, I need to use state and populate the table based off that -- see mydevbox ToolBox */}
-        <table class="table table-hover mt-4">
+        <table className="table table-hover mt-4">
           <thead>
             <tr>
               <th scope="col">Complete</th>

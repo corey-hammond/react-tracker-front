@@ -22,7 +22,7 @@ class networking extends Component {
 
         {/* Table goes here */}
         {/* To make this table dynamic, I need to use state and populate the table based off that -- see mydevbox ToolBox */}
-        <table class="table table-hover mt-4">
+        <table className="table table-hover mt-4">
           <thead>
             <tr>
               <th scope="col">Date</th>

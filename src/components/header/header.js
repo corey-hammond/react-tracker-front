@@ -71,7 +71,7 @@ export default function header() {
               <a
                 className="nav-link disabled"
                 href="#"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-disabled="true"
               >
                 Disabled
