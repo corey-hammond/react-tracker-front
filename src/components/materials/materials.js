@@ -22,7 +22,7 @@ class Materials extends Component {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1 className="text-center">Job Search Materials</h1>
+            <h1 className="text-center display-1">Job Search Materials</h1>
           </div>
         </div>
         <div className="row mt-5">
